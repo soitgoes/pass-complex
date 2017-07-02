@@ -1,0 +1,23 @@
+{
+  "name": "pass-complex",
+  "version": "1.0.0",
+  "description": "This is a password complexity validator for node based on the recommendations on MIT's recommendations.  http://kb.mit.edu/confluence/display/istcontrib/Strong+Passwords#StrongPasswords-Whatthesystemlooksfor",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "password",
+    "validation"
+  ],
+  "author": "Martin Murphy",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^3.0.2"
+  },
+  "dependencies": {
+    "line-reader": "^0.4.0",
+    "pouchdb": "^6.0.5",
+    "uuid": "^2.0.3"
+  }
+}

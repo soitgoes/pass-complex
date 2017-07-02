@@ -69,7 +69,7 @@ module.exports = function (user, password, currentPassword){
   return isInWordList(password).then(function(wordlist){
       valid &= !wordlist
       if (wordlist)
-        messages.push('Password happens to be in a list of cracked passwords.  Please choose another.');
+        messages.push('Password happens to be in a list of common passwords.  Please choose another.');
     return {valid:valid, messages:messages};
   })
   // .catch(function(){

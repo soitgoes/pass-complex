@@ -1,7 +1,4 @@
-var path = require('path');
-var db = require('pouchDb')('password')
-
-module.exports = function (user, password, currentPassword){
+function isComplex(user, password, currentPassword){
   if (!user || !password) throw new Exception("You must pass both user and password")
   password = password.trim();
   var valid = true;
@@ -25,6 +22,7 @@ module.exports = function (user, password, currentPassword){
   }
 
   function isInWordList(password){
+    var db = require('pouchDb')('password')
     var found = false;
     return db.get(password).then(x => {
       return !!x;
@@ -77,3 +75,5 @@ module.exports = function (user, password, currentPassword){
   //   return {valid:true, messages:messages};
   // });
 }
+var module = module || {exports: null};
+module.exports = isComplex

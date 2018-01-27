@@ -1,6 +1,6 @@
 {
   "name": "pass-complex",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "This is a password complexity validator for node based on the recommendations on MIT's recommendations.  http://kb.mit.edu/confluence/display/istcontrib/Strong+Passwords#StrongPasswords-Whatthesystemlooksfor",
   "main": "index.js",
   "scripts": {

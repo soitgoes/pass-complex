@@ -9,10 +9,10 @@ function isComplex(user, password, currentPassword){
   }
   function containAtTwoCharacterClasses(password){
     var classCount =0;
-    if (/[a-z]+/.test(password)) classCount++;
-    if (/[A-Z]+/.test(password)) classCount++;
-    if (/[0-9]+/.test(password)) classCount++;
-    if (/[!@#$%^&*()\-+{}\[\]|?:;<>,.?\/`~]+/.test(password)) classCount++;
+    if (/.*?[a-z]+.*?/.test(password)) classCount++;
+    if (/.*?[A-Z]+.*?/.test(password)) classCount++;
+    if (/.*?[0-9]+.*?/.test(password)) classCount++;
+    if (/.*?[!@#$%^&*()\-+{}\[\]|?:;<>,.?\/`~]+.*?/.test(password)) classCount++;
 
     return classCount > 2;
   }
@@ -22,14 +22,15 @@ function isComplex(user, password, currentPassword){
   }
 
   function isInWordList(password){
+    if (typeof(require) == 'undefined') return Promise.resolve(false);
     var db = require('pouchDb')('password')
     var found = false;
-    return db.get(password).then(x => {
+    return db.get(password).then(function(x) {
       return !!x;
     })
   }
 
-    if (password.length <= 8){
+    if (password.length < 8){
       valid = false;
       messages.push('Password must be 8 characters or longer.');
     }
